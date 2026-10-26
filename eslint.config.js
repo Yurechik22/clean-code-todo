@@ -15,10 +15,10 @@ export default [
       'no-console': 'warn',
     },
   },
- {
+  {
     files: ['eslint.config.js'],
     languageOptions: {
       sourceType: 'module',
     },
-  }, 
+  },
 ];
