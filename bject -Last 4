@@ -1,0 +1,101 @@
+[1mdiff --git a/app.js b/app.js[m
+[1mindex 45baf78..31f7a8e 100644[m
+[1m--- a/app.js[m
+[1m+++ b/app.js[m
+[36m@@ -14,20 +14,20 @@[m [mvar completedTasksHolder = document.getElementById('completed-tasks'); //complet[m
+ [m
+ //New task list item[m
+ var createNewTaskElement = function (taskString) {[m
+[31m-  var listItem = document.createElement('li');[m
+[32m+[m[32m  const listItem = document.createElement('li');[m
+ [m
+   //input (checkbox)[m
+[31m-  var checkBox = document.createElement('input'); //checkbx[m
+[32m+[m[32m  const checkBox = document.createElement('input'); //checkbx[m
+   //label[m
+[31m-  var label = document.createElement('label'); //label[m
+[32m+[m[32m  const label = document.createElement('label'); //label[m
+   //input (text)[m
+[31m-  var editInput = document.createElement('input'); //text[m
+[32m+[m[32m  const editInput = document.createElement('input'); //text[m
+   //button.edit[m
+[31m-  var editButton = document.createElement('button'); //edit button[m
+[32m+[m[32m  const editButton = document.createElement('button'); //edit button[m
+ [m
+   //button.delete[m
+[31m-  var deleteButton = document.createElement('button'); //delete button[m
+[31m-  var deleteButtonImg = document.createElement('img'); //delete button image[m
+[32m+[m[32m  const deleteButton = document.createElement('button'); //delete button[m
+[32m+[m[32m  const deleteButtonImg = document.createElement('img'); //delete button image[m
+ [m
+   label.innerText = taskString;[m
+   label.className = 'task';[m
+[36m@@ -57,7 +57,7 @@[m [mvar addTask = function () {[m
+   console.log('Add Task...');[m
+   //Create a new list item with the text from the #new-task:[m
+   if (!taskInput.value) return;[m
+[31m-  var listItem = createNewTaskElement(taskInput.value);[m
+[32m+[m[32m  const listItem = createNewTaskElement(taskInput.value);[m
+ [m
+   //Append listItem to incompleteTaskHolder[m
+   incompleteTaskHolder.appendChild(listItem);[m
+[36m@@ -72,12 +72,12 @@[m [mvar editTask = function () {[m
+   console.log('Edit Task...');[m
+   console.log("Change 'edit' to 'save'");[m
+ [m
+[31m-  var listItem = this.parentNode;[m
+[32m+[m[32m  const listItem = this.parentNode;[m
+ [m
+[31m-  var editInput = listItem.querySelector('input[type=text]');[m
+[31m-  var label = listItem.querySelector('label');[m
+[31m-  var editBtn = listItem.querySelector('.edit');[m
+[31m-  var containsClass = listItem.classList.contains('editMode');[m
+[32m+[m[32m  const editInput = listItem.querySelector('input[type=text]');[m
+[32m+[m[32m  const label = listItem.querySelector('label');[m
+[32m+[m[32m  const editBtn = listItem.querySelector('.edit');[m
+[32m+[m[32m  const containsClass = listItem.classList.contains('editMode');[m
+   //If class of the parent is .editmode[m
+   if (containsClass) {[m
+     //switch to .editmode[m
+[36m@@ -97,8 +97,8 @@[m [mvar editTask = function () {[m
+ var deleteTask = function () {[m
+   console.log('Delete Task...');[m
+ [m
+[31m-  var listItem = this.parentNode;[m
+[31m-  var ul = listItem.parentNode;[m
+[32m+[m[32m  const listItem = this.parentNode;[m
+[32m+[m[32m  const ul = listItem.parentNode;[m
+   //Remove the parent list item from the ul.[m
+   ul.removeChild(listItem);[m
+ };[m
+[36m@@ -108,7 +108,7 @@[m [mvar taskCompleted = function () {[m
+   console.log('Complete Task...');[m
+ [m
+   //Append the task list item to the #completed-tasks[m
+[31m-  var listItem = this.parentNode;[m
+[32m+[m[32m  const listItem = this.parentNode;[m
+   completedTasksHolder.appendChild(listItem);[m
+   bindTaskEvents(listItem, taskIncomplete);[m
+ };[m
+[36m@@ -118,7 +118,7 @@[m [mvar taskIncomplete = function () {[m
+   //Mark task as incomplete.[m
+   //When the checkbox is unchecked[m
+   //Append the task list item to the #incompleteTasks.[m
+[31m-  var listItem = this.parentNode;[m
+[32m+[m[32m  const listItem = this.parentNode;[m
+   incompleteTaskHolder.appendChild(listItem);[m
+   bindTaskEvents(listItem, taskCompleted);[m
+ };[m
+[36m@@ -137,9 +137,9 @@[m [maddButton.addEventListener('click', ajaxRequest);[m
+ var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {[m
+   console.log('bind list item events');[m
+   //select ListItems children[m
+[31m-  var checkBox = taskListItem.querySelector('input[type=checkbox]');[m
+[31m-  var editButton = taskListItem.querySelector('button.edit');[m
+[31m-  var deleteButton = taskListItem.querySelector('button.delete');[m
+[32m+[m[32m  const checkBox = taskListItem.querySelector('input[type=checkbox]');[m
+[32m+[m[32m  const editButton = taskListItem.querySelector('button.edit');[m
+[32m+[m[32m  const deleteButton = taskListItem.querySelector('button.delete');[m
+ [m
+   //Bind editTask to edit button.[m
+   editButton.onclick = editTask;[m
